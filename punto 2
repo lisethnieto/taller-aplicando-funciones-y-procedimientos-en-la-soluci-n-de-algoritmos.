@@ -1,0 +1,55 @@
+import static org.junit.Assert.assertEquals;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] edades = new int[10];
+        int menoresEdad = 0;
+        int mayoresEdad = 0;
+        int adultosMayores = 0;
+        int edadMasBaja = 120;
+        int edadMasAlta = 0;
+        int sumaEdades = 0;
+
+        for (int i = 0; i < edades.length; i++) {
+            System.out.println("Ingrese la edad de la persona " + (i + 1) + ":");
+            int edad = scanner.nextInt();
+
+            while (edad < 1 || edad > 120) {
+                System.out.println("Error: la edad debe estar entre 1 y 120 años.");
+                System.out.println("Ingrese la edad de la persona " + (i + 1) + " nuevamente:");
+                edad = scanner.nextInt();
+            }
+
+            edades[i] = edad;
+            sumaEdades += edad;
+
+            if (edad < 18) {
+                menoresEdad++;
+            } else if (edad >= 18 && edad < 60) {
+                mayoresEdad++;
+            } else if (edad >= 60) {
+                adultosMayores++;
+            }
+
+            if (edad < edadMasBaja) {
+                edadMasBaja = edad;
+            }
+
+            if (edad > edadMasAlta) {
+                edadMasAlta = edad;
+            }
+        }
+
+        double promedioEdades = (double) sumaEdades / edades.length;
+
+        System.out.println("Menores de edad: " + menoresEdad);
+        System.out.println("Mayores de edad: " + mayoresEdad);
+        System.out.println("Adultos mayores: " + adultosMayores);
+        System.out.println("Edad más baja: " + edadMasBaja);
+        System.out.println("Edad más alta: " + edadMasAlta);
+        System.out.println("Promedio de edades: " + promedioEdades);
+    }
+}
