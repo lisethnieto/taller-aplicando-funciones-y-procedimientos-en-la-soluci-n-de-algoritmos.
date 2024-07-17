@@ -1,0 +1,22 @@
+import static org.junit.Assert.assertEquals;
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("ingrese el valor de uno de los lados a: ");
+    double a = scanner.nextDouble();
+    
+    double perimetro = 4*a;
+     double   area = Math.pow(a, 2) ;
+    
+    System.out.println("el perimetro del cuadrado es: " + perimetro);
+
+    
+
+    
+    System.out.println("el area del cuadrado es : " + area);
+  }
+}
