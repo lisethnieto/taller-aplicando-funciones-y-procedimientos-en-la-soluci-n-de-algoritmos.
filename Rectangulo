@@ -1,0 +1,24 @@
+import static org.junit.Assert.assertEquals;
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("ingrese el valor del lado b: ");
+    double b = scanner.nextDouble();
+    System.out.print("ingrese el valor del lado a: ");
+    double a = scanner.nextDouble();
+    double perimetro = a + b;
+    double perimetro1 = 2 * perimetro;
+    System.out.println("el perimetro del rectangulo es: " + perimetro1);
+
+    System.out.print("ingrese el valor de  h: ");
+    double h = scanner.nextDouble();
+
+    double area = b * a;
+    
+    System.out.println("el area de rectangulo es es: " + area);
+  }
+}
