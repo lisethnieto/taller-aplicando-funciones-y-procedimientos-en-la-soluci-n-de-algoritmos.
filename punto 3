@@ -1,0 +1,60 @@
+import static org.junit.Assert.assertEquals;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] vector1 = new int[5];
+        int[] vector2 = new int[5];
+        int[] vectorMezcla = new int[10];
+
+        // Leer vector1
+        System.out.println("Ingrese el primer vector:");
+        for (int i = 0; i < vector1.length; i++) {
+            System.out.println("Ingrese el elemento " + (i + 1) + ":");
+            int elemento = scanner.nextInt();
+            if (i > 0 && elemento < vector1[i - 1]) {
+                System.out.println("Error: el vector debe estar ordenado ascendentemente.");
+                i--;
+                continue;
+            }
+            vector1[i] = elemento;
+        }
+
+        // Leer vector2
+        System.out.println("Ingrese el segundo vector:");
+        for (int i = 0; i < vector2.length; i++) {
+            System.out.println("Ingrese el elemento " + (i + 1) + ":");
+            int elemento = scanner.nextInt();
+            if (i > 0 && elemento < vector2[i - 1]) {
+                System.out.println("Error: el vector debe estar ordenado ascendentemente.");
+                i--;
+                continue;
+            }
+            vector2[i] = elemento;
+        }
+
+        // Mezclar vectores
+        int i = 0, j = 0, k = 0;
+        while (i < vector1.length && j < vector2.length) {
+            if (vector1[i] < vector2[j]) {
+                vectorMezcla[k++] = vector1[i++];
+            } else {
+                vectorMezcla[k++] = vector2[j++];
+            }
+        }
+        while (i < vector1.length) {
+            vectorMezcla[k++] = vector1[i++];
+        }
+        while (j < vector2.length) {
+            vectorMezcla[k++] = vector2[j++];
+        }
+
+        // Imprimir vector mezcla
+        System.out.println("Vector mezcla:");
+        for (int elemento : vectorMezcla) {
+            System.out.print(elemento + " ");
+        }
+    }
+}
